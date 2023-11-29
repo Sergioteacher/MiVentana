@@ -3,10 +3,13 @@ package miVentana;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
+import javax.swing.JButton;
+import java.awt.BorderLayout;
+import java.awt.Font;
 
 public class MiVentana {
 
-	private JFrame frame;
+	private JFrame MiFrame;
 
 	/**
 	 * Launch the application.
@@ -16,7 +19,7 @@ public class MiVentana {
 			public void run() {
 				try {
 					MiVentana window = new MiVentana();
-					window.frame.setVisible(true);
+					window.MiFrame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -35,9 +38,14 @@ public class MiVentana {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		frame = new JFrame();
-		frame.setBounds(100, 100, 450, 300);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		MiFrame = new JFrame();
+		MiFrame.setTitle("Ventana Principal");
+		MiFrame.setBounds(100, 100, 300, 160);
+		MiFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		JButton MiBoton = new JButton("Evento ...");
+		MiBoton.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		MiFrame.getContentPane().add(MiBoton, BorderLayout.CENTER);
 	}
 
 }
