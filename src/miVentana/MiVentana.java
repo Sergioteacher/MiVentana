@@ -44,6 +44,7 @@ public class MiVentana {
 	 */
 	public MiVentana() {
 		initialize();
+		MiFrame.addWindowListener(new manejadorVentana());
 	}
 
 	/**
@@ -78,43 +79,43 @@ class manejadorVentana implements WindowListener {
 	@Override
 	public void windowActivated(WindowEvent arg0) {
 		// TODO Auto-generated method stub
-		
+		System.out.println("La ventana pricipal Activada    (cambio de estado 1)");
 	}
 
 	@Override
 	public void windowClosed(WindowEvent arg0) {
 		// TODO Auto-generated method stub
-		
+		System.out.println("La ventana pricipal CERRADA");
 	}
 
 	@Override
 	public void windowClosing(WindowEvent arg0) {
 		// TODO Auto-generated method stub
-		
+		System.out.println("Terminado la aplicación: ventana pricipal");
 	}
 
 	@Override
 	public void windowDeactivated(WindowEvent arg0) {
 		// TODO Auto-generated method stub
-		
+		System.out.println("La ventana pricipal Desactivada (cambio de estado 0)");
 	}
 
 	@Override
 	public void windowDeiconified(WindowEvent arg0) {
 		// TODO Auto-generated method stub
-		
+		System.out.println("De-iconizada la ventana pricipal");
 	}
 
 	@Override
 	public void windowIconified(WindowEvent arg0) {
 		// TODO Auto-generated method stub
-		
+		System.out.println("Iconizada la ventana pricipal");
 	}
 
 	@Override
 	public void windowOpened(WindowEvent arg0) {
 		// TODO Auto-generated method stub
-		
+		System.out.println("Abriendo ventana pricipal");
 	}
 	
 }
