@@ -30,6 +30,7 @@ public class MiVentana {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
+					System.out.println("Inicio del programa");
 					MiVentana window = new MiVentana();
 					window.MiFrame.setVisible(true);
 				} catch (Exception e) {
@@ -45,7 +46,14 @@ public class MiVentana {
 	public MiVentana() {
 		initialize();
 		MiFrame.addWindowListener(new manejadorVentana());
+		MiFrame.addComponentListener(new manejadorCompomentes());
+		
+		//manejadorVentana OidoVentana = manejadorVentana();
+		//MiFrame.addWindowFocusListener(OidoVentana);
+		//MiFrame.getSize();
+		//if( MiFrame. == arg0.getSource()) {
 	}
+
 
 	/**
 	 * Initialize the contents of the frame.
@@ -74,6 +82,11 @@ public class MiVentana {
 
 }
 
+/**
+ * Clase para gestionar los eventos de la Ventana
+ * @author Sergio Teacher
+ *
+ */
 class manejadorVentana implements WindowListener {
 
 	@Override
@@ -120,6 +133,11 @@ class manejadorVentana implements WindowListener {
 	
 }
 
+/**
+ * Clase para gestionar los eventos de forma de la Ventana
+ * @author Sergio Teacher
+ *
+ */
 class manejadorCompomentes implements ComponentListener {
 
 	@Override
@@ -131,13 +149,16 @@ class manejadorCompomentes implements ComponentListener {
 	@Override
 	public void componentMoved(ComponentEvent arg0) {
 		// TODO Auto-generated method stub
-		
+		//System.out.println("Me muevo ...");
 	}
 
 	@Override
 	public void componentResized(ComponentEvent arg0) {
 		// TODO Auto-generated method stub
-		
+		System.out.println("Se ha cambiado su tamaño");
+		//System.out.println(arg0.getSource() );
+		System.out.println( arg0.getComponent().getSize() );
+		//System.out.println( window. MiFrame.getSize(); );
 	}
 
 	@Override
