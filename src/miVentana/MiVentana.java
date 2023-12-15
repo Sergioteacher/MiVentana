@@ -21,6 +21,8 @@ import java.awt.event.ActionEvent;
 public class MiVentana {
 
 	private JFrame MiFrame;
+	JButton MiBoton;
+	JButton OtroBoton;
 
 	/**
 	 * Método que inicia el programa
@@ -48,6 +50,19 @@ public class MiVentana {
 		MiFrame.addWindowListener(new manejadorVentana());
 		MiFrame.addComponentListener(new manejadorCompomentes());
 		
+		//MiBoton.addActionListener(new manejadorClicks());
+		//OtroBoton.addActionListener(new manejadorClicks());
+		
+		manejadorClicks CClick = new manejadorClicks();
+		MiBoton.addActionListener(CClick);
+		OtroBoton.addActionListener(CClick);
+		
+		
+		
+		
+		
+		
+		
 		//manejadorVentana OidoVentana = manejadorVentana();
 		//MiFrame.addWindowFocusListener(OidoVentana);
 		//MiFrame.getSize();
@@ -64,19 +79,25 @@ public class MiVentana {
 		MiFrame.setBounds(100, 100, 300, 160);
 		MiFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
-		JButton MiBoton = new JButton("Evento ...");
-				MiBoton.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		MiBoton = new JButton("Evento ...");
+		MiBoton.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		MiFrame.getContentPane().add(MiBoton, BorderLayout.CENTER);
-		MiBoton.addActionListener(new ActionListener() {
-			/**
-			 * Controlando el evento mediante
-			 * una clase anónima.
-			 * @param args - tipo  "ActionEvent"
-			 */
-			public void actionPerformed(ActionEvent arg0) {
-				System.out.println("He pulsado el botón");
-			}
-		});
+		
+		OtroBoton = new JButton("Otro evento ...");
+		OtroBoton.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		MiFrame.getContentPane().add(OtroBoton, BorderLayout.EAST);
+		
+		
+//		MiBoton.addActionListener(new ActionListener() {
+//			/**
+//			 * Controlando el evento mediante
+//			 * una clase anónima.
+//			 * @param args - tipo  "ActionEvent"
+//			 */
+//			public void actionPerformed(ActionEvent arg0) {
+//				System.out.println("He pulsado el botón");
+//			}
+//		});
 		
 	}
 
@@ -139,7 +160,6 @@ class manejadorVentana implements WindowListener {
  *
  */
 class manejadorCompomentes implements ComponentListener {
-
 	@Override
 	public void componentHidden(ComponentEvent arg0) {
 		// TODO Auto-generated method stub
@@ -149,22 +169,37 @@ class manejadorCompomentes implements ComponentListener {
 	@Override
 	public void componentMoved(ComponentEvent arg0) {
 		// TODO Auto-generated method stub
-		//System.out.println("Me muevo ...");
+		System.out.println("Me muevo ...");
 	}
 
 	@Override
 	public void componentResized(ComponentEvent arg0) {
 		// TODO Auto-generated method stub
 		System.out.println("Se ha cambiado su tamaño");
-		//System.out.println(arg0.getSource() );
 		System.out.println( arg0.getComponent().getSize() );
-		//System.out.println( window. MiFrame.getSize(); );
+
 	}
 
 	@Override
 	public void componentShown(ComponentEvent arg0) {
 		// TODO Auto-generated method stub
 		
+	}	
+	
+}
+
+class manejadorClicks implements ActionListener {
+
+	@Override
+	public void actionPerformed(ActionEvent arg0) {
+		// TODO Auto-generated method stub
+		
+		System.out.println( arg0.getActionCommand() );
+		System.out.println("He pulsado el botón");
 	}
+	
+	
+	
+	
 	
 }
